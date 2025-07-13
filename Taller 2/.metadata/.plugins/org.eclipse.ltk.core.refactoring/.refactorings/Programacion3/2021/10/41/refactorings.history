@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 packages to &apos;JuegosBase/src&apos;&#x0D;&#x0A;- Original project: &apos;Programacion3&apos;&#x0D;&#x0A;- Destination element: &apos;JuegosBase/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Programacion3/Programacion3/src/prog3.arbol.binario.util&#x0D;&#x0A;     Programacion3/Programacion3/src/prog3.listagenerica" description="Copy packages" destination="=JuegosBase/src" element1="/Programacion3\/src&lt;prog3.arbol.binario.util" element2="/Programacion3\/src&lt;prog3.listagenerica" flags="589830" fragments="2" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1633701641414" version="1.0"/>
+</session>

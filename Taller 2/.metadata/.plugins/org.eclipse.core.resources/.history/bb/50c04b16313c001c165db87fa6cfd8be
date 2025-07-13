@@ -1,0 +1,151 @@
+package entregable3;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class GestorDeOlimpiadas extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	private JButton botonConfiguracion;
+
+	private JButton botonDeportista = new JButton("Deportista");
+	private JLabel imagenDeportista;
+
+	private JButton botonPais = new JButton("País");
+	private JLabel imagenPais;
+
+	private JButton botonDisciplina = new JButton("Disciplina");
+	private JLabel imagenDisciplina;
+
+	public void crearBotonDeportista(Container panel) {
+		panel.setLayout(new GridLayout(2, 1));
+		ImageIcon imageIcon = new ImageIcon("Deportista.png"); // Carga la imagen a ImageIcon
+		Image imagen = imageIcon.getImage(); // Transformarlo a imagen
+		Image nuevaImagen = imagen.getScaledInstance(120, 100, java.awt.Image.SCALE_SMOOTH); // Escalarlo
+		imageIcon = new ImageIcon(nuevaImagen); // Transformarlo de vuelta
+		imagenDeportista = new JLabel(imageIcon);
+		panel.add(imagenDeportista);
+		panel.add(botonDeportista);
+	}
+
+	public void crearBotonPais(Container panel) {
+		panel.setLayout(new GridLayout(2, 1));
+		ImageIcon imageIcon = new ImageIcon("Pais.png"); // Carga la imagen a ImageIcon
+		Image imagen = imageIcon.getImage(); // Transformarlo a imagen
+		Image nuevaImagen = imagen.getScaledInstance(120, 100, java.awt.Image.SCALE_SMOOTH); // Escalarlo
+		imageIcon = new ImageIcon(nuevaImagen); // Transformarlo de vuelta
+		imagenPais = new JLabel(imageIcon);
+		panel.add(imagenPais);
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridheight=2;
+		panel.add(botonPais,c);
+	}
+
+	public void crearBotonDisciplina(Container panel) {
+		panel.setLayout(new GridLayout(2, 1));
+		ImageIcon imageIcon = new ImageIcon("Disciplina.png"); // Carga la imagen a ImageIcon
+		Image imagen = imageIcon.getImage(); // Transformarlo a imagen
+		Image nuevaImagen = imagen.getScaledInstance(120, 100, java.awt.Image.SCALE_SMOOTH); // Escalarlo
+		imageIcon = new ImageIcon(nuevaImagen); // Transformarlo de vuelta
+		imagenDisciplina = new JLabel(imageIcon);
+		panel.add(imagenDisciplina);
+		panel.add(botonDisciplina);
+	}
+
+	public void crearGrillaBotones(Container panel) {
+		GridLayout aux = new GridLayout(3,3);
+		int Hgap=70;
+		int Vgap=30;
+		aux.setHgap(Hgap);
+		aux.setVgap(Vgap);
+		
+		panel.setLayout(aux);
+		Container deportista = new Container();
+		this.crearBotonDeportista(deportista);
+		Container pais = new Container();
+		this.crearBotonPais(pais);
+		Container disciplina = new Container();
+		this.crearBotonDisciplina(disciplina);
+        
+		panel.add(deportista);
+		panel.add(pais);
+		panel.add(disciplina);
+		JButton botonGenerico1 = new JButton("SIN DEFINIR");
+		panel.add(botonGenerico1);
+		JButton botonGenerico2 = new JButton("SIN DEFINIR");
+		panel.add(botonGenerico2);
+		JButton botonGenerico3 = new JButton("SIN DEFINIR");
+		panel.add(botonGenerico3);
+		JButton botonGenerico4 = new JButton("SIN DEFINIR");
+		panel.add(botonGenerico4);
+		JButton botonGenerico5 = new JButton("SIN DEFINIR");
+		panel.add(botonGenerico5);
+		JButton botonGenerico6 = new JButton("SIN DEFINIR");
+		panel.add(botonGenerico6);
+
+	}
+	
+	public void crearBotonConfiguracion(Container panel) {
+		panel.setLayout(new FlowLayout());
+		ImageIcon imageIcon = new ImageIcon("Configuracion.png");
+        botonConfiguracion = new JButton(imageIcon);
+        botonConfiguracion.setMaximumSize(new Dimension(50,50));
+        botonConfiguracion.setPreferredSize(new Dimension(50,50));
+        panel.add(botonConfiguracion);
+
+	}
+	
+	public void init() {
+		//	Tomamos GridBagLayout para poder ubicar los botones correctamente
+		
+        this.setLayout(new GridBagLayout());
+        this.setTitle("Gestor de Olimpiadas");
+        this.setSize(705, 375);
+
+        //	Configuración de cada panel
+        GridBagConstraints c = new GridBagConstraints();
+        
+        // panel1-->Grilla de Botones
+        
+        Container panel1 = new Container();
+        this.crearGrillaBotones(panel1);
+        c.gridx = 0; 
+      	c.gridy = 0;
+      	c.gridheight = 10;
+      	c.gridwidth = 10;
+      	c.fill = GridBagConstraints.BOTH;
+      	c.insets = new Insets(25, 55, 30, 0);
+      	c.weightx = 0.5;
+        c.weighty = 1.0;
+        c.ipadx = 150;
+        c.ipady = 150;
+        
+        this.add(panel1,c);
+        
+        // panel1-->Boton de Configuración
+        
+        Container panel2 = new Container();
+        this.crearBotonConfiguracion(panel2);
+        c.gridx = 10; 
+        c.gridy = 0;
+        c.gridheight = 1;
+        c.gridwidth = 1;
+        c.fill = GridBagConstraints.HORIZONTAL;
+      	c.insets = new Insets(0, 0, 0, 0);
+        c.weightx = 0.1;
+        c.weighty = 0.1;
+        c.ipadx = 0;
+        c.ipady = 0;
+        c.anchor = GridBagConstraints.FIRST_LINE_END;
+
+        this.add(panel2 , c);
+
+        this.setVisible(true);
+    }
+
+	public static void main(String[] args) {
+		GestorDeOlimpiadas app = new GestorDeOlimpiadas();
+		app.init();
+	}
+}

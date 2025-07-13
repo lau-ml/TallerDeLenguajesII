@@ -1,0 +1,71 @@
+package olimpiadas;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
+public class GestorDeportistaNuevo extends JFrame{
+	 private JTextField nombre=new JTextField();
+	 private JTextField apellido=new JTextField();
+	 private JTextField email=new JTextField();
+	 private JTextField telefono=new JTextField();
+	 private JTextField pais=new JTextField();
+	 private JTextField disciplina=new JTextField();
+	 private JLabel nombreEtiq=new JLabel("Nombre");
+	 private JLabel apellidoEtiq=new JLabel("Apellido");
+	 private JLabel emailEtiq=new JLabel("Email");
+	 private JLabel telefonoEtiq=new JLabel("Telefono");
+	 private JLabel paisEtiq=new JLabel("País");
+	 private JLabel disciplinaEtiq=new JLabel("Disciplina");
+	 private JLabel error=new JLabel("Error");
+
+public void crearGrillaCampos(JPanel panel) {
+	GridLayout layout=new GridLayout(6,2);
+	layout.setHgap(20);
+	layout.setVgap(20);
+	panel.setBorder(new EmptyBorder(0,100,0,100));
+	panel.setLayout(layout);
+	panel.add(nombreEtiq);
+	panel.add(nombre);
+	panel.add(apellidoEtiq);
+	panel.add(apellido);
+	panel.add(emailEtiq);
+	panel.add(email);
+	panel.add(telefonoEtiq);
+	panel.add(telefono);
+	panel.add(paisEtiq);
+	panel.add(pais);
+	panel.add(disciplinaEtiq);
+	panel.add(disciplina);
+	
+}
+public void crearMensajeError(JPanel panel)
+{	
+	panel.setBorder(new EmptyBorder(30,0,0,0));
+	panel.add(error);
+}
+
+public void init() {
+	BorderLayout layout=new BorderLayout();
+	layout.setHgap(40);
+	layout.setVgap(40);
+	this.setLayout(layout);
+	this.setTitle("Gestor de olimpiadas - Deportista");
+	this.setSize(700, 350);
+	JPanel panel = new JPanel();
+    this.crearGrillaCampos(panel);
+    this.add(panel,BorderLayout.CENTER);
+    JPanel panel2 = new JPanel();
+    this.crearMensajeError(panel2);
+    this.add(panel2, BorderLayout.NORTH);
+    this.setVisible(true);
+}
+public static void main(String[] args) {
+	GestorDeportistaNuevo app = new GestorDeportistaNuevo();
+	app.init();
+}
+}

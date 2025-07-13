@@ -1,0 +1,193 @@
+package olimpiadas;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class GestorDeOlimpiadas extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	private JButton botonDeportista = new JButton ("Deportista");
+	private JLabel imagenDeportista;
+	
+	private JButton botonPais = new JButton ("País");
+	private JLabel imagenPais;
+	
+	private JButton botonDisciplina = new JButton ("Disciplina");
+	private JLabel imagenDisciplina;
+	
+	private JButton botonGenerico = new JButton ("SIN DEFINIR");
+	private JButton boton0 = new JButton ("0");
+	private JButton boton1 = new JButton ("1");
+	private JButton boton2 = new JButton ("2");
+	private JButton boton3 = new JButton ("3");
+	private JButton boton4 = new JButton ("4");
+	private JButton boton5 = new JButton ("5");
+	private JButton boton6 = new JButton ("6");
+	private JButton boton7 = new JButton ("7");
+	private JButton boton8 = new JButton ("8");
+	private JButton boton9 = new JButton ("9");
+	
+	public void crearBotonDeportista(Container panel) {
+		panel.setLayout(new GridLayout(2,1));
+		ImageIcon imageIcon = new ImageIcon("Deportista.png"); // Carga la imagen a ImageIcon
+		Image imagen = imageIcon.getImage(); // Transformarlo a imagen
+		Image nuevaImagen = imagen.getScaledInstance(120, 100,  java.awt.Image.SCALE_SMOOTH); // Escalarlo
+		imageIcon = new ImageIcon(nuevaImagen);  // Transformarlo de vuelta
+		imagenDeportista = new JLabel (imageIcon);
+		panel.add(imagenDeportista);
+		panel.add(botonDeportista);
+	}
+	
+	public void crearBotonPais(Container panel) {
+		panel.setLayout(new GridLayout(2,1));
+		ImageIcon imageIcon = new ImageIcon("Pais.png"); // Carga la imagen a ImageIcon
+		Image imagen = imageIcon.getImage(); // Transformarlo a imagen
+		Image nuevaImagen = imagen.getScaledInstance(120, 100,  java.awt.Image.SCALE_SMOOTH); // Escalarlo
+		imageIcon = new ImageIcon(nuevaImagen);  // Transformarlo de vuelta
+		imagenPais = new JLabel (imageIcon);
+		panel.add(imagenPais);
+		panel.add(botonPais);
+	}
+	
+	public void crearBotonDisciplina(Container panel) {
+		panel.setLayout(new GridLayout(2,1));
+		ImageIcon imageIcon = new ImageIcon("Disciplina.png"); // Carga la imagen a ImageIcon
+		Image imagen = imageIcon.getImage(); // Transformarlo a imagen
+		Image nuevaImagen = imagen.getScaledInstance(120, 100,  java.awt.Image.SCALE_SMOOTH); // Escalarlo
+		imageIcon = new ImageIcon(nuevaImagen);  // Transformarlo de vuelta
+		imagenDisciplina = new JLabel (imageIcon);
+		panel.add(imagenDisciplina);
+		panel.add(botonDisciplina);
+	}
+	
+	public void crearGrillaBotones(Container panel) {
+		panel.setLayout(new GridLayout(3,3));
+		Container deportista = new Container();
+        this.crearBotonDeportista(deportista);
+        Container pais = new Container();
+        this.crearBotonPais(pais);
+        Container disciplina = new Container();
+        this.crearBotonDisciplina(disciplina);
+        
+        //Setear dimensiones al contenedor
+        
+        panel.add(deportista);
+        panel.add(pais);
+        panel.add(disciplina);
+        panel.add(botonGenerico);
+        panel.add(boton1);
+        panel.add(boton2);
+        panel.add(boton3);
+        panel.add(boton4);
+        panel.add(boton5);
+        
+	}
+	
+	/*
+	public void agregarComponentes2(Container panel) {
+		panel.setLayout(new GridLayout(4,6));
+		panel.add(botonMC);
+        panel.add(boton7);
+        panel.add(boton8);
+        panel.add(boton9);
+        panel.add(botonDiv);
+        panel.add(botonSqrt);
+        panel.add(botonMR);
+        panel.add(boton4);
+        panel.add(boton5);
+        panel.add(boton6);
+        panel.add(botonMul);
+        panel.add(botonPorcentaje);
+        panel.add(botonMS);
+        panel.add(boton1);
+        panel.add(boton2);
+        panel.add(boton3);
+        panel.add(botonRes);
+        panel.add(boton1sobreX);
+        panel.add(botonM);
+        panel.add(boton0);
+        panel.add(botonMasMenos);
+        panel.add(botonPunto);
+        panel.add(botonSum);
+        panel.add(botonIgual);
+	}
+	*/
+	/*public void init() {
+		this.setLayout(new GridBagLayout());
+		this.setTitle("Calculadora");
+		this.setSize(400, 350);
+        
+        menu = new JMenuBar();
+        JMenu edicion = new JMenu("Edición");
+        JMenu ver = new JMenu("Ver");
+        JMenu ayuda = new JMenu("Ayuda");
+        menu.add(edicion);
+        menu.add(ver);
+        menu.add(ayuda);
+        
+        GridBagConstraints constraints1 = new GridBagConstraints();
+        constraints1.gridx = 0;
+        constraints1.gridy = 0;
+        constraints1.gridwidth = 6; 
+        constraints1.gridheight = 1; 
+        constraints1.weighty = 1.9;
+        constraints1.fill = GridBagConstraints.HORIZONTAL;
+        constraints1.anchor = GridBagConstraints.NORTH;
+        this.add (menu, constraints1);
+        
+        barra = new JTextField("20.", 20);
+		barra.setHorizontalAlignment(JTextField.RIGHT);
+		barra.setEditable(false);
+		GridBagConstraints constraints2 = new GridBagConstraints();
+        constraints2.gridx = 0;
+        constraints2.gridy = 1;
+        constraints2.gridwidth = 6; 
+        constraints2.gridheight = 1; 
+        constraints2.weighty = 1.0;
+        constraints2.fill = GridBagConstraints.HORIZONTAL;
+        constraints2.anchor = GridBagConstraints.NORTH;
+        this.add (barra, constraints2);
+		
+		Container panel1 = new Container();
+        this.agregarComponentes1(panel1);
+        GridBagConstraints constraints3 = new GridBagConstraints();
+        constraints3.gridx = 0;
+        constraints3.gridy = 2;
+        constraints3.gridwidth = 6; 
+        constraints3.gridheight = 1; 
+        constraints3.weighty = 1.0;
+        constraints3.fill = GridBagConstraints.BOTH;
+        constraints3.anchor = GridBagConstraints.SOUTH;
+        this.add (panel1, constraints3);
+        
+        Container panel2 = new Container();
+        this.agregarComponentes2(panel2);
+        GridBagConstraints constraints4 = new GridBagConstraints();
+        constraints4.gridx = 0;
+        constraints4.gridy = 3;
+        constraints4.gridwidth = 6; 
+        constraints4.gridheight = 4; 
+        constraints4.weighty = 1.0;
+        constraints4.fill = GridBagConstraints.BOTH;
+        constraints4.anchor = GridBagConstraints.SOUTH;
+        this.add (panel2, constraints4);
+        
+        this.setVisible(true);
+    }*/
+	
+	public void init() {
+		this.setLayout(new GridBagLayout());
+		this.setTitle("Gestor de Olimpiadas");
+		this.setSize(400, 350);
+		Container panel = new Container();
+        this.crearGrillaBotones(panel);
+        this.add(panel);
+        this.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		GestorDeOlimpiadas app = new GestorDeOlimpiadas();
+		app.init();
+	}
+}

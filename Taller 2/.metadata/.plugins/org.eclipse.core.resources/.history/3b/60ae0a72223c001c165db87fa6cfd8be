@@ -1,0 +1,12 @@
+package olimpiadas;
+import javax.swing.table.DefaultTableModel;
+public class TablaModelo extends DefaultTableModel {
+
+	public TablaModelo(final Object [][] datos, final String[] titulos) {
+		super(datos,titulos);
+	}
+		public Class getColumnClass(final int column) {
+			return this.getValueAt(0,column).getClass();
+		}
+	}
+

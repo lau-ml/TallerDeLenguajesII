@@ -1,0 +1,45 @@
+
+public class Prueba {
+	public static void main (String[] argos) {
+		double array_doubles[]= new double[500];
+		for (int i=0; i<500; i++){
+		array_doubles[i]=7*i;
+		}
+		for (int i=0 ; i<600 ; i=i+25){
+		try{
+		int j=10;
+		System.out.println("El elemento en "+ i + " es " + acceso_por_indice(array_doubles,i));
+		System.out.println(j);
+		
+		}
+		catch(ArrayIndexOutOfBoundsException e){
+		System.out.println(e.toString());
+		}
+		catch(Exception a){
+		System.out.println(a.toString());
+		}
+		finally{
+		System.out.println("sentencia finally");
+		}
+		}
+	}
+		
+		public static double acceso_por_indice (double [] v, int indice) throws Exception, ArrayIndexOutOfBoundsException{
+		if ((indice>=0) && (indice<v.length)){
+		return v[indice];
+		}
+		else{
+		if (indice<0){
+		// caso excepcional
+		throw new ArrayIndexOutOfBoundsException(" el índice" + indice + " es un número negativo");
+		}
+		else{
+			// caso excepcional
+			throw new Exception(" el indice" + indice + " no es una posición válida");
+			
+		}
+		
+		}
+		System.out.println("Si hay error no aparezco");		
+}
+}

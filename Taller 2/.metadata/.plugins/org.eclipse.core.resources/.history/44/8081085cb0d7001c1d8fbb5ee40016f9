@@ -1,0 +1,48 @@
+import java.io.FileInputStream;
+	import java.io.IOException;
+import java.util.Scanner;
+import java.io.DataInputStream;
+
+public class Excepciones {
+	
+	public static void main(String[] args) {
+	// Para leer un ficher
+		Lanzadora lanza = new Lanzadora();
+		FileInputStream entrada = null;
+		int leo;
+		try {
+		entrada = new FileInputStream("./fich.txt");
+		Scanner scan= new Scanner(entrada);
+		while ((scan.hasNextInt()) ){
+		leo= scan.nextInt();	
+		System.out.println(leo);
+		if (leo < 0)
+		lanza.lanzaSiNegativo(leo);
+		else if (leo > 100)
+		lanza.lanzaSimayor100(leo);
+		}
+		entrada.close();
+		System.out.println("Todo fue bien");
+		}
+		catch (ExcepcionUno e) { // Personalizada
+		System.out.println("Excepcion: " + e.getMessage());
+		}
+		catch (ExcepcionDos e) { // Personalizada
+		System.out.println("Excepcion: " + e.getMessage());
+		}
+		catch (IOException e) { // Estándar
+		System.out.println("Excepcion: " + e.getMessage());
+		}
+		finally {
+		scan.close();
+		if (entrada != null)
+		try {
+		entrada.close(); // Siempre queda cerrado
+		}
+		catch (Exception e) {
+		System.out.println("Excepcion: " + e.getMessage());
+		}
+		System.out.println("Fichero cerrado.");
+		}
+		}
+}

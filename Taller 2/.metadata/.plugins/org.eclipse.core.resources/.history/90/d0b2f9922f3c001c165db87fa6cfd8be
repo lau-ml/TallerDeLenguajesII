@@ -1,0 +1,71 @@
+package olimpiadas;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+
+public class GestorDeportistas extends JFrame {
+	private JTable tabla = new JTable();
+	private JButton botonNuevo = new JButton("+ NUEVO");
+	private JButton botonExportarCSV = new JButton("EXPORTAR CSV");
+	private JButton botonVolver = new JButton("VOLVER");
+	private JButton botonEliminar = new JButton("ELIMINAR");
+	private JButton botonEditar = new JButton("EDITAR");
+	
+public void crearBotonesSuperiores(JPanel panel) {
+	GridLayout layout=new GridLayout(1,3);
+	layout.setHgap(40);
+	layout.setVgap(40);
+	panel.setLayout(layout);
+	panel.add(botonNuevo);
+	panel.add(botonVolver);
+	panel.add(botonExportarCSV);
+	}
+public void crearTabla(Container panel)
+{	panel.setLayout(new BorderLayout());
+	TableCellRenderer tableRenderer;
+	tableRenderer = tabla.getDefaultRenderer(JButton.class);
+	tabla.setModel(new TablaModelo());
+	tabla.setDefaultRenderer(JButton.class, new RenderizacionBotones(tableRenderer));
+	panel.add(new JScrollPane(tabla),BorderLayout.CENTER);
+}
+public void crearVentana(Container panel)
+{
+	Container panelBotonesSup= new Container();
+	this.crearBotonesSuperiores(panelBotonesSup);
+	
+}
+public void init() {
+	BorderLayout layout=new BorderLayout();
+	layout.setHgap(60);
+	layout.setVgap(60);
+	this.setLayout(layout);
+	this.setTitle("Gestor de olimpiadas - Deportista");
+	this.setSize(400, 350);
+	
+	JPanel panel = new JPanel();
+    this.crearBotonesSuperiores(panel);
+    this.add(panel,BorderLayout.NORTH);
+    Container panel2 = new Container();
+    this.crearTabla(panel2);
+    this.add(panel2,BorderLayout.CENTER);
+    this.setVisible(true);
+}
+public static void main(String[] args) {
+	GestorDeportistas app = new GestorDeportistas();
+	app.init();
+}
+}

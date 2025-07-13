@@ -1,0 +1,55 @@
+package olimpiadas;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+
+import javax.swing.*;
+
+public class GestorDeportistaNuevo extends JFrame{
+	 private JTextField nombre=new JTextField();
+	 private JTextField apellido=new JTextField();
+	 private JTextField email=new JTextField();
+	 private JTextField telefono=new JTextField();
+	 private JTextField pais=new JTextField();
+	 private JTextField disciplina=new JTextField();
+	 private JLabel nombreEtiq=new JLabel("Nombre");
+	 private JLabel apellidoEtiq=new JLabel("Apellido");
+	 private JLabel emailEtiq=new JLabel("Email");
+	 private JLabel telefonoEtiq=new JLabel("Telefono");
+	 private JLabel paisEtiq=new JLabel("País");
+	 private JLabel disciplinaEtiq=new JLabel("Disciplina");
+	 
+
+public void crearGrillaCampos(Container panel) {
+	panel.setLayout(new GridLayout(6,2));
+	panel.add(nombreEtiq);
+	panel.add(nombre);
+	panel.add(apellidoEtiq);
+	panel.add(apellido);
+	panel.add(emailEtiq);
+	panel.add(email);
+	panel.add(telefono);
+	panel.add(telefonoEtiq);
+	panel.add(pais);
+	panel.add(paisEtiq);
+	panel.add(disciplina);
+	panel.add(disciplinaEtiq);
+}
+public void init() {
+	BorderLayout layout=new BorderLayout();
+	layout.setHgap(60);
+	layout.setVgap(60);
+	this.setLayout(layout);
+	this.setTitle("Gestor de olimpiadas - Deportista");
+	this.setSize(400, 350);
+	Container panel = new Container();
+    this.crearGrillaCampos(panel);
+    this.add(panel,BorderLayout.CENTER);
+    this.setVisible(true);
+}
+public static void main(String[] args) {
+	GestorDeportistaNuevo app = new GestorDeportistaNuevo();
+	app.init();
+}
+}

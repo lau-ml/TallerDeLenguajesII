@@ -1,0 +1,12 @@
+
+public class PruebaSinException {
+	public static void main(String[] args) {
+		try {
+			System.out.println("Hola");
+		}
+		finally{
+			
+		}
+		System.out.println("Hola 2");
+	}
+}

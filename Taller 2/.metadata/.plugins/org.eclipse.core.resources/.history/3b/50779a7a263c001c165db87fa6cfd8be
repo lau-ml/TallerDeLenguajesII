@@ -1,0 +1,29 @@
+package olimpiadas;
+import javax.swing.JButton;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+public class TablaModelo extends AbstractTableModel {
+	private JButton botonEliminar = new JButton("ELIMINAR");
+	private JButton botonEditar = new JButton("EDITAR");
+	private String  [] columns = {"Deportistas","Pais","Deporte","eliminar","editar"};
+	private Object[][] rows = { { "Nombre apellido", "País", "Deporte", botonEliminar, botonEditar },
+			{ "Juana", "Argentina", "Deporte", botonEliminar, botonEditar } };
+	   public String getColumnName(int column) {
+	      return columns[column];
+	   }
+	   public int getRowCount() {
+	      return rows.length;
+	   }
+	   public int getColumnCount() {
+	      return columns.length;
+	   }
+	   public Object getValueAt(int row, int column) {
+	      return rows[row][column];
+	   }
+	   public boolean isCellEditable(int row, int column) {
+	      return false;
+	   }
+	   public Class getColumnClass(int column) {
+	      return getValueAt(0, column).getClass();
+	   }
+	}

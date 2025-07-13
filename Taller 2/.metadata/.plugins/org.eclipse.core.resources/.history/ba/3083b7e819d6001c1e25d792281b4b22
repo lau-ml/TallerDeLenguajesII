@@ -1,0 +1,23 @@
+
+public class ProcedimientoP {
+	public static int x;
+	public static void principal(boolen b1) {
+		try {
+			x=1;
+			if (b1==true)
+				manejador1();
+		}
+		catch(Error1 e) {
+			x=x+1;
+		}
+		finally {
+			x=x+4;
+		}
+	}
+	
+
+	public static void manejador1() throws Error1 {
+		throw new Error1();
+	}
+}
+

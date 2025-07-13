@@ -1,0 +1,9 @@
+
+public class Excepcion1 extends Exception{
+	public ExcepcionUno(){
+		super(); // constructor por defecto de Exception
+		}
+	public ExcepcionUno( String cadena ){
+		super( cadena ); // constructor param. de Exception
+		}
+}

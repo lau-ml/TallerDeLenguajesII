@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;unlp.info.reinoanimal.animal&apos; to &apos;Animal&apos;&#x0D;&#x0A;- Original project: &apos;TP5&apos;&#x0D;&#x0A;- Original element: &apos;unlp.info.reinoanimal.animal&apos;&#x0D;&#x0A;- Renamed element: &apos;unlp.info.reinoanimal.Animal&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;animal&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;unlp.info.reinoanimal{animal.java[animal" matchStrategy="1" name="Animal" qualified="false" references="true" similarDeclarations="false" stamp="1632773663082" textual="false" version="1.0"/>
+</session>

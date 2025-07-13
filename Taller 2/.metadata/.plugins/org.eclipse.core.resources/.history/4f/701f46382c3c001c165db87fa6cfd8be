@@ -1,0 +1,48 @@
+package olimpiadas;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+
+import javax.swing.*;
+
+public class GestorDeportistaNuevo extends JFrame{
+	 private JTextField nombre;
+	 private JTextField apellido;
+	 private JTextField email;
+	 private JTextField telefono;
+	 private JTextField pais;
+	 private JTextField disciplina;
+	 private JLabel nombreEtiq;
+	 private JLabel apellidoEtiq;
+	 private JLabel emailEtiq;
+	 private JLabel telefonoEtiq;
+	 private JLabel paisEtiq;
+	 private JLabel disciplinaEtiq;
+	 
+
+public void crearGrillaCampos(Container panel) {
+	panel.setLayout(new GridLayout(6,2));
+	panel.add(nombre);
+}
+public void init() {
+	BorderLayout layout=new BorderLayout();
+	layout.setHgap(60);
+	layout.setVgap(60);
+	this.setLayout(layout);
+	this.setTitle("Gestor de olimpiadas - Deportista");
+	this.setSize(400, 350);
+	
+	Container panel = new Container();
+    this.crearBotonesSuperiores(panel);
+    this.add(panel,BorderLayout.NORTH);
+    Container panel2 = new Container();
+    this.crearTabla(panel2);
+    this.add(panel2,BorderLayout.CENTER);
+    this.setVisible(true);
+}
+public static void main(String[] args) {
+	GestorDeportistaNuevo app = new GestorDeportistaNuevo();
+	app.init();
+}
+}
